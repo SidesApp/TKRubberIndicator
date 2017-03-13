@@ -75,7 +75,7 @@ open class TKRubberPageControl : UIControl {
     // 当前 Index
     open var currentIndex  = 0 {
         didSet {
-            changIndexToValue(currentIndex)
+            changeIndexToValue(currentIndex)
         }
     }
     // 事件闭包
@@ -193,7 +193,7 @@ open class TKRubberPageControl : UIControl {
     
      // 重置控件
     open func resetRubberIndicator(){
-        changIndexToValue(0)
+        changeIndexToValue(0)
         smallBubbles.forEach { $0.removeFromSuperlayer() }
         smallBubbles.removeAll()
         setUpView()
@@ -206,7 +206,7 @@ open class TKRubberPageControl : UIControl {
         let point = ges.location(in: self)
         if point.y > yPointbegin && point.y < yPointEnd && point.x > xPointbegin && point.x < xPointEnd{
             let index = Int(point.x - xPointbegin) / Int(styleConfig.smallBubbleMoveRadius)
-            changIndexToValue(index)
+            changeIndexToValue(index)
         }
     }
     
